@@ -4,6 +4,10 @@
     padding:10px;
 }
 
+.navbar{
+    text-align: center;
+}
+
 .sidebar{
     border: 1px solid green;
     padding:10px;
@@ -14,4 +18,8 @@
     border: 1px solid blue;
     padding:10px;
     margin:10px;
+}
+
+.card{
+    padding:10px;
 }
