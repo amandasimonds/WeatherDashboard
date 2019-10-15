@@ -1,0 +1,17 @@
+.container{
+    border:1px solid black;
+    margin:50px;
+    padding:10px;
+}
+
+.sidebar{
+    border: 1px solid green;
+    padding:10px;
+    margin:10px;
+}
+
+.main{
+    border: 1px solid blue;
+    padding:10px;
+    margin:10px;
+}
