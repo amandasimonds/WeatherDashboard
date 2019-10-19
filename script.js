@@ -14,6 +14,7 @@ $("#search").on('click', function () {
     // cityInput = cityInput.join('-');
     console.log(cityInput);
   
+    $(".list-group").append(cityInput);
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
   // Here we are building the URL we need to query the database
@@ -23,7 +24,8 @@ $("#search").on('click', function () {
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-      console.log(response.message);
+        console.log(response);
+      console.log(response.main.humidity);
       console.log(queryURL);
   
     //   var weatherImg = response.message;
