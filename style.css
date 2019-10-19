@@ -1,21 +1,22 @@
 .container{
-    border:1px solid black;
+    border:1px solid lightgray;
+    border-radius: 10px;
     margin:50px;
     padding:10px;
 }
 
-.navbar{
+.navbar {
     text-align: center;
 }
 
 .sidebar{
-    border: 1px solid green;
+    border: ;
     padding:10px;
     margin:10px;
 }
 
 .main{
-    border: 1px solid blue;
+    border: ;
     padding:10px;
     margin:10px;
 }
