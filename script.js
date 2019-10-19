@@ -14,7 +14,7 @@ $("#search").on('click', function () {
     // cityInput = cityInput.join('-');
     console.log(cityInput);
   
-    $(".list-group").append(cityInput);
+    $(".list-group").append("<li class= 'list-group-item'>" + cityInput + "</li>");
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
   // Here we are building the URL we need to query the database
