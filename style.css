@@ -1,8 +1,9 @@
 .container{
     border:1px solid lightgray;
     border-radius: 10px;
-    margin:50px;
-    padding:10px;
+    margin:20px;
+    padding:7px;
+    width: 100%;
 }
 
 .navbar {
@@ -11,16 +12,30 @@
 
 .sidebar{
     border: ;
-    padding:10px;
-    margin:10px;
+    padding:5px;
+    margin:5px;
 }
 
 .main{
     border: ;
-    padding:10px;
-    margin:10px;
+    padding:5px;
+    margin:5px;
+    float: right;
+    background-color:;
 }
 
 .card{
     padding:10px;
+    display: inline-block;
+}
+
+#fiveday{
+    float: left;
+}
+
+#fivedaycard{
+    float:left;
+    background-color:rgb(20, 63, 255);
+    width: 7rem;
+    margin:5px;
 }

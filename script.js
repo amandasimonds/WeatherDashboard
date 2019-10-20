@@ -1,9 +1,15 @@
 // console.log("script is here");
 
 
-//create variables
+//moment.js variables
+var m = moment();
+var currentDate = m.format("MMM Do YYYY");
 
-var searchBar = $("search-bar");
+console.log(m);
+console.log(currentDate);
+
+//current date header
+$("#current-date").text(currentDate);
 
 
 $("#search").on('click', function () {
@@ -14,63 +20,62 @@ $("#search").on('click', function () {
     // cityInput = cityInput.split(' ');
     // cityInput = cityInput.join('-');
     console.log(cityInput);
-  
-    $(".list-group").append("<li class= 'list-group-item'>" + cityInput + "</li>");
 
+    //display city searched in current weather display
+    $("#current-city").text(cityInput + " |  ");
+
+    //create urls for openweather api
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial&appid=" + APIKey;
     var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityInput + "&cnt=5&units=imperial&appid=" + APIKey;
+
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
 
-      console.log("response: " + response);
+    var responseString = JSON.stringify(response);
+
+      console.log("response: " + responseString);
       console.log("current weather: " + queryURL);
       console.log("temperature: " + response.main.temp);
       console.log("humidity: " + response.main.humidity);
-    //   console.log("wind speed: " + response.main.wind.speed);
-      
-  
+
+      //transfer content to html
+      $(".temp").text("Temperature: " + response.main.temp);
+      $(".wind").text("Wind Speed: " + response.wind.speed);
+      $(".humidity").text("Humidity: " + response.main.humidity);
+      $(".uv-index").text("UV Index: " );
+
+      //append city search to history list under search bar
+      var citySearchHistory = "<button>" + cityInput + "</button>";
+    $(".list-group").append("<li class= 'list-group-item'>" + citySearchHistory + "</li>");
+
+
     //   var weatherImg = response.message;
-  
     //     var weatherImg = $('<img>');
     //     weatherImg.attr('src', imagesrc)
     //     $('#weather-image').append(weatherImg);
-
-    // // Transfer content to HTML
-    // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-    // $(".wind").text("Wind Speed: " + response.wind.speed);
-    // $(".humidity").text("Humidity: " + response.main.humidity);
-    // $(".temp").text("Temperature (F) " + response.main.temp);
-
-    // // Log the data in the console as well
-    // console.log("Wind Speed: " + response.wind.speed);
-    // console.log("Humidity: " + response.main.humidity);
-    // console.log("Temperature (F): " + response.main.temp);
     });
 
     $.ajax({
         url: queryURL2,
         method: "GET"
       }).then(function (response) {
+
+        var responseString = JSON.stringify(response);
   
-        console.log("response 2: " + response);
+        console.log("response 2: " + responseString);
         console.log("forecast URL: " + queryURL2);
-        console.log("temperature: " + response.list[0].temp.day);
-        console.log("humidity: " + response.list[0].humidity);
-        console.log("temperature: " + response.list[0].temp.day);
-        console.log("humidity: " + response.list[0].humidity);
+        console.log("temperature day 1: " + response.list[0].temp.day);
+        console.log("humidity day 1: " + response.list[0].humidity);
+
+        console.log("temperature day 2: " + response.list[1].temp.day);
+        console.log("humidity day 2: " + response.list[1].humidity);
 
       });
   });
-
-
-//link to ajax?
-
-
-//current conditions ajax call
 
 
 //5 day forecast ajax call
