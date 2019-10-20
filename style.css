@@ -35,7 +35,7 @@
 
 #fivedaycard{
     float:left;
-    background-color:rgb(20, 63, 255);
+    /* background-color:rgb(20, 63, 255); */
     width: 7rem;
     margin:5px;
     padding:4px;
