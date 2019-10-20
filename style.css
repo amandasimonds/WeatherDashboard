@@ -18,8 +18,8 @@
 
 .main{
     border: ;
-    padding:5px;
-    margin:5px;
+    padding:2px;
+    margin:2px;
     float: right;
     background-color:;
 }
@@ -38,4 +38,18 @@
     background-color:rgb(20, 63, 255);
     width: 7rem;
     margin:5px;
+    padding:4px;
 }
+
+@media screen and (max-width: 960px) {
+    /* The body's bg color will be #333 */
+    body {
+      background-color:rgb(202, 245, 202);
+    }
+  
+    .container, .main, .row{
+      max-width: 100%;
+      float: left;
+    }
+
+  }
