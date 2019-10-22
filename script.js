@@ -1,6 +1,11 @@
 // console.log("script is here");
 
 
+
+
+
+$( document ).ready(function() {
+
 //moment.js
 var m = moment();
 var currentDate = m.format("MM/DD/YY");
@@ -26,7 +31,11 @@ $("#day-3").text(dayThreeForecast);
 $("#day-4").text(dayFourForecast);
 $("#day-5").text(dayFiveForecast);
 
+var cityInput = $('#search-input').val();
 
+    var APIKey = "166a433c57516f51dfab1f7edaed8413";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial&appid=" + APIKey;
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityInput + "&cnt=5&units=imperial&appid=" + APIKey;
 $("#search").on('click', function () {
     event.preventDefault();
     // console.log("button was clicked");
@@ -45,27 +54,46 @@ $("#search").on('click', function () {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial&appid=" + APIKey;
     var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityInput + "&cnt=5&units=imperial&appid=" + APIKey;
 
-
     //current weather ajax call
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
 
-    var responseString = JSON.stringify(response);
+        console.log(queryURL);
+
+    // var responseString = JSON.stringify(response);
+    var cityLon = response.coord.lon;
+    var cityLat = response.coord.lat;
+
+    console.log("city lat: " + cityLat);
+    console.log("city lon: " + cityLon);
 
     //   console.log("response: " + responseString);
     //   console.log("current weather: " + queryURL);
     //   console.log("temperature: " + response.main.temp);
     //   console.log("humidity: " + response.main.humidity);
 
-    console.log("checking for img src: " + response.weather[0].icon);
+    //UV Index API Call
+    var UVIndexURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon;
+    $.ajax({
+        url: UVIndexURL,
+        method: "GET"
+      }).then(function (response) {
+          console.log(response);
+          console.log(UVIndexURL);
+          console.log("UV Index: " + response.value)
+
+          $(".uv-index").text("UV Index: " + response.value);
+
+
+      });
 
       //transfer content to html
       $(".temp").text("Temperature: " + response.main.temp);
       $(".wind").text("Wind Speed: " + response.wind.speed);
       $(".humidity").text("Humidity: " + response.main.humidity);
-      $(".uv-index").text("UV Index: " );
+      
 
     //   get weather icon
     var weatherIcon = response.weather[0].icon;
@@ -150,10 +178,4 @@ $("#search").on('click', function () {
       });
   });
 
-
-//5 day forecast ajax call
-
-
-//use local storage for search history ---- make a list of all searched cities
-
-//add a 5 day forecast
+});
