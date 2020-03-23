@@ -2,6 +2,7 @@
 
 This application utilizes weather.api and JavaScript to display current weather and a 5 day forecast for any city.
 Weather information and icons are generated from weather.api
+Moment.js npm package is used to generate the date.
 
 #How To Use
 
