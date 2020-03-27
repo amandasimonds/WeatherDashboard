@@ -1,59 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel ="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Weather Dashboard</title>
 </head>
+
 <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Weather Dashboard</a>
-                </div>
-              </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Weather Dashboard</a>
+        </div>
+    </nav>
 
     <div class="container">
 
         <div class="row">
-        
+
             <div class="sidebar">
-                
+
                 <div class="col-sm-1">
-                    
-                        <div class="card" style="width: 19rem; float:left;">
 
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search" aria-label="Search">
-                                <button class= "btn btn-primary" type="submit" id="search">Search</button>
-                            </form>
+                    <div class="card" style="width: 19rem; float:left;">
 
-                            <ul class="list-group list-group-flush"></ul>
-                            <div id="cities"></div>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-primary" type="submit" id="search">Search</button>
+                        </form>
 
-                        </div>
-                        
+                        <ul class="list-group list-group-flush"></ul>
+                        <div id="cities"></div>
+
+                    </div>
+
                 </div>
-                    
+
             </div>
 
             <div class="main">
 
                 <div class="col-md-11">
-                    
-                    <div class="card" style = "width:45rem">
+
+                    <div class="card" style="width:45rem">
 
                         <div class="card-body">
-                            <h3 id="current-city" style="float: left;"></h5>
-                            <h3 id="current-date" ></h5>
-                            <div id="weather-image"></div>
+                            <h3 id="current-city" style="float: left;">
+                                </h5>
+                                <h3 id="current-date">
+                                    </h5>
+                                    <div id="weather-image"></div>
 
-                            <div class="temp"></div>
-                            <div class="wind"></div>
-                            <div class="humidity"></div>
-                            <div class="uv-index"></div>
+                                    <div class="temp"></div>
+                                    <div class="wind"></div>
+                                    <div class="humidity"></div>
+                                    <div class="uv-index"></div>
 
                         </div>
 
@@ -66,60 +72,61 @@
 
                         <div class="card" id="fivedaycard">
 
-                                <h5 class="card-title" id="day-1"></h5>
-                                <div id="image5-1"></div>
-                                <div class="temp5-1"></div>
-                                <div class="humidity5-1"></div>
+                            <h5 class="card-title" id="day-1"></h5>
+                            <div id="image5-1"></div>
+                            <div class="temp5-1"></div>
+                            <div class="humidity5-1"></div>
 
                         </div>
 
                         <div class="card" id="fivedaycard">
 
-                                <h5 class="card-title" id="day-2"></h5>
-                                <div id="image5-2"></div>
-                                <div class="temp5-2"></div>
-                                <div class="humidity5-2"></div>
+                            <h5 class="card-title" id="day-2"></h5>
+                            <div id="image5-2"></div>
+                            <div class="temp5-2"></div>
+                            <div class="humidity5-2"></div>
 
                         </div>
 
-                        <div class="card"  id="fivedaycard">
+                        <div class="card" id="fivedaycard">
 
-                                <h5 class="card-title" id="day-3" ></h5>
-                                <div id="image5-3"></div>
-                                <div class="temp5-3"></div>
-                                <div class="humidity5-3"></div>
-
-                        </div>
-
-                        <div class="card"  id="fivedaycard">
-
-                                <h5 class="card-title" id="day-4"></h5>
-                                <div id="image5-4"></div>
-                                <div class="temp5-4"></div>
-                                <div class="humidity5-4"></div>
+                            <h5 class="card-title" id="day-3"></h5>
+                            <div id="image5-3"></div>
+                            <div class="temp5-3"></div>
+                            <div class="humidity5-3"></div>
 
                         </div>
 
-                        <div class="card"  id="fivedaycard">
+                        <div class="card" id="fivedaycard">
 
-                                <h5 class="card-title" id="day-5"></h5>
-                                <div id="image5-5"></div>
-                                <div class="temp5-5"></div>
-                                <div class="humidity5-5"></div>
+                            <h5 class="card-title" id="day-4"></h5>
+                            <div id="image5-4"></div>
+                            <div class="temp5-4"></div>
+                            <div class="humidity5-4"></div>
 
                         </div>
-                     
+
+                        <div class="card" id="fivedaycard">
+
+                            <h5 class="card-title" id="day-5"></h5>
+                            <div id="image5-5"></div>
+                            <div class="temp5-5"></div>
+                            <div class="humidity5-5"></div>
+
+                        </div>
+
                     </div>
-                 
+
+                </div>
+
             </div>
-            
+
         </div>
 
-    </div>
-    
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="script.js"></script>
 </body>
+
 </html>
