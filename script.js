@@ -1,9 +1,5 @@
 // console.log("script is here");
 
-
-
-
-
 $( document ).ready(function() {
 
 //moment.js
@@ -42,8 +38,6 @@ $("#search").on('click', function () {
 
     //get search input
     var cityInput = $('#search-input').val();
-    // cityInput = cityInput.split(' ');
-    // cityInput = cityInput.join('-');
     console.log(cityInput);
 
     //display city searched in current weather display
@@ -86,14 +80,12 @@ $("#search").on('click', function () {
 
           $(".uv-index").text("UV Index: " + response.value);
 
-
       });
 
       //transfer content to html
       $(".temp").text("Temperature: " + response.main.temp);
       $(".wind").text("Wind Speed: " + response.wind.speed);
       $(".humidity").text("Humidity: " + response.main.humidity);
-      
 
     //   get weather icon
     var weatherIcon = response.weather[0].icon;
@@ -107,6 +99,16 @@ $("#search").on('click', function () {
       //set item to local storage
       localStorage.setItem("city search", cityInput);
       var citySearchStore = localStorage.getItem("city search");
+
+      // city history to local storage.
+function storeCity(cityInput) {
+    var currentCity = $('<li>').text(cityInput);
+    currentCity.attr({type: 'button', class:'storeCity', name:cityInput});
+    $('#cities').append(currentCity);
+    localStorage.setItem(cityInput, cityInput);
+};
+
+storeCity(city);
 
       //append city search to history list under search bar
       var citySearchHistory = "<button id='stored-search'>" + citySearchStore + "</button>";
